@@ -4,6 +4,7 @@ import { changeFilter, selectFilter } from '../../redux';
 
 export default function Filer() {
   const filter = useSelector(selectFilter);
+  console.log(filter);
   const dispatch = useDispatch();
   const onChange = e => {
     const input = e.currentTarget.value;

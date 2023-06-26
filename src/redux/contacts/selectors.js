@@ -1,5 +1,4 @@
 export const selectContacts = state => state.contacts.items;
-export const selectFilter = state => state.filter.value;
 
 export const handlePending = state => {
   state.isLoading = true;

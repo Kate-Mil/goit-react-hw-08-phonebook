@@ -1,17 +1,22 @@
 import React from 'react';
-
-import ContactList from './ContactList/ContactList';
-import ContactForm from './ContactForm/ContactForm';
-import Filer from './Filter/Filter';
+import { Route, Routes } from 'react-router-dom';
+import Contacts from 'pages/Contacts';
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import Home from 'pages/Home';
+import Layout from './Layout/Layout';
 
 export default function App() {
   return (
-    <div style={{ paddingLeft: 15 }}>
-      <h1 className="contact_title">Phonebook</h1>
-      <ContactForm />
-      <h2 className="contact__title">Contacts</h2>
-      <Filer />
-      <ContactList />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/contacts" element={<Contacts />}></Route>
+        </Route>
+      </Routes>
+    </>
   );
 }
