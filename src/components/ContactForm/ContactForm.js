@@ -1,9 +1,7 @@
 import { useState } from 'react';
-// import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact, selectContacts } from '../../redux';
-import css from './ContactForm.module.css';
-import { Button } from '@chakra-ui/react';
+import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -50,11 +48,10 @@ const ContactForm = () => {
   };
 
   return (
-    <form className={css.contact__form} onSubmit={hendlSubmit}>
-      <label className={css.contact__lable}>
+    <FormControl mb="50px" onSubmit={hendlSubmit}>
+      <FormLabel>
         Name
-        <input
-          className={css.contact__input}
+        <Input
           value={name}
           onChange={hendlChange}
           type="text"
@@ -63,11 +60,10 @@ const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </label>
-      <label className={css.contact__lable}>
+      </FormLabel>
+      <FormLabel>
         Number
-        <input
-          className={css.contact__input}
+        <Input
           value={number}
           onChange={hendlChange}
           type="tel"
@@ -76,11 +72,11 @@ const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </label>
+      </FormLabel>
       <Button size="sm" colorScheme="blue" type="submit">
         Add contact
       </Button>
-    </form>
+    </FormControl>
   );
 };
 

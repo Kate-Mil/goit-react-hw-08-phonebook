@@ -1,6 +1,6 @@
-import css from './Filter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter, selectFilter } from '../../redux';
+import { FormLabel, Input } from '@chakra-ui/react';
 
 export default function Filer() {
   const filter = useSelector(selectFilter);
@@ -11,10 +11,9 @@ export default function Filer() {
     dispatch(changeFilter(input));
   };
   return (
-    <label className={css.contact__lable}>
+    <FormLabel>
       Find contacts by name
-      <input
-        className={css.contact__input}
+      <Input
         onChange={onChange}
         value={filter}
         type="text"
@@ -22,6 +21,6 @@ export default function Filer() {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-    </label>
+    </FormLabel>
   );
 }
