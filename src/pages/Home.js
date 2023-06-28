@@ -1,5 +1,6 @@
-import { Container } from '@chakra-ui/react';
+import { Container, Box, Image } from '@chakra-ui/react';
 import { Heading } from '@chakra-ui/react';
+import gus from '../pictures/gus.svg';
 
 export default function Home() {
   return (
@@ -7,6 +8,9 @@ export default function Home() {
       <Heading size="4xl" mb={2} color="#2EAFEF" textShadow="2px 2px grey">
         Phonebook
       </Heading>
+      <Box>
+        <Image width="470px" src={gus} alt="Logo" />
+      </Box>
     </Container>
   );
 }

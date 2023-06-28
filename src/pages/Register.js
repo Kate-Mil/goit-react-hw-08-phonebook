@@ -1,5 +1,6 @@
-import { Container } from '@chakra-ui/react';
+import { Container, Box, Image } from '@chakra-ui/react';
 import RegisterForm from 'components/RegisterForm/RegisterForm';
+import gus3 from '../pictures/gus3.svg';
 
 export default function Register() {
   return (
@@ -12,6 +13,9 @@ export default function Register() {
       gap="15px"
     >
       <RegisterForm />
+      <Box>
+        <Image width="280px" src={gus3} alt="Logo" />
+      </Box>
     </Container>
   );
 }

@@ -1,5 +1,6 @@
 import LoginForm from '../components/LoginForm/LoginForm';
-import { Container } from '@chakra-ui/react';
+import { Container, Box, Image } from '@chakra-ui/react';
+import gus2 from '../pictures/gus2.svg';
 
 export default function Login() {
   return (
@@ -12,6 +13,9 @@ export default function Login() {
       gap="15px"
     >
       <LoginForm />
+      <Box>
+        <Image width="280px" src={gus2} alt="Logo" />
+      </Box>
     </Container>
   );
 }
