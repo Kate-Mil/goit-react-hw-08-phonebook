@@ -10,15 +10,16 @@ export default function AppBar() {
         align="center"
         justify="space-between"
         p="4px"
-        borderBottom="2px"
-        boxShadow="base"
+        borderBottom="1px solid"
+        borderColor="#2EAFEF"
+        mb="50px"
       >
-        <Box>
+        <Box p="10px">
           <Navigation />
         </Box>
         {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
         {/* <UserMenu /> */}
-        <Box>
+        <Box p="10px">
           <AuthNav />
         </Box>
       </Flex>
