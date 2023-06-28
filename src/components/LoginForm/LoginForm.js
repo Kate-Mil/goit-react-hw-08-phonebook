@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact, selectContacts } from '../../redux';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux';
 import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 
 const LoginForm = () => {
