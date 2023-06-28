@@ -1,5 +1,7 @@
 import css from './ContactItem.module.css';
 import PropTypes from 'prop-types';
+import { IconButton } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
 
 export default function ContactItem({ name, number, onDeleteContact }) {
   return (
@@ -7,13 +9,14 @@ export default function ContactItem({ name, number, onDeleteContact }) {
       <p className={css.contact__text}>
         {name}: {number}
       </p>
-      <button
-        className={css.contactItem__btn}
+      <IconButton
+        // className={css.contactItem__btn}
         onClick={onDeleteContact}
         type="button"
-      >
-        Del
-      </button>
+        colorScheme="blue"
+        aria-label="Search database"
+        icon={<DeleteIcon />}
+      />
     </li>
   );
 }

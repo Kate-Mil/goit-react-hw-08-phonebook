@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact, selectContacts } from '../../redux';
 import css from './ContactForm.module.css';
+import { Button } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -76,9 +77,9 @@ const ContactForm = () => {
           required
         />
       </label>
-      <button className={css.contact__btn} type="submit">
+      <Button size="sm" colorScheme="blue" type="submit">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };
