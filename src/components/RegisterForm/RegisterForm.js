@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux';
+import { register } from '../../redux';
 import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 
 const RegisterForm = () => {
@@ -41,8 +41,10 @@ const RegisterForm = () => {
     //   alert(`Sorry, contact ${name} is already exists`);
     //   return;
     // }
-
-    dispatch(addContact({ name, email, password }));
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    dispatch(register({ name, email, password }));
     resetForm();
   };
 
@@ -53,46 +55,48 @@ const RegisterForm = () => {
   };
 
   return (
-    <FormControl mb="50px" onSubmit={hendlSubmit}>
-      <FormLabel>
-        Name
-        <Input
-          value={name}
-          onChange={hendlChange}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </FormLabel>
-      <FormLabel>
-        Email
-        <Input
-          value={email}
-          onChange={hendlChange}
-          type="email"
-          name="number"
-          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-          title="Please enter a valid email address"
-          required
-        />
-      </FormLabel>
-      <FormLabel>
-        Password
-        <Input
-          value={password}
-          onChange={hendlChange}
-          type="password"
-          name="number"
-          pattern="^(?=.*[a-z]).{5,}$"
-          title="Password must be at least 5 characters long and contain at least one lowercase letter"
-          required
-        />
-      </FormLabel>
-      <Button size="sm" colorScheme="blue" type="submit">
-        Submit
-      </Button>
+    <FormControl mb="50px">
+      <form onSubmit={hendlSubmit}>
+        <FormLabel>
+          Name
+          <Input
+            value={name}
+            onChange={hendlChange}
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </FormLabel>
+        <FormLabel>
+          Email
+          <Input
+            value={email}
+            onChange={hendlChange}
+            type="email"
+            name="email"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+            title="Please enter a valid email address"
+            required
+          />
+        </FormLabel>
+        <FormLabel>
+          Password
+          <Input
+            value={password}
+            onChange={hendlChange}
+            type="text"
+            name="password"
+            pattern="^(?=.*[a-z]).{5,}$"
+            title="Password must be at least 5 characters long and contain at least one lowercase letter"
+            required
+          />
+        </FormLabel>
+        <Button size="sm" colorScheme="blue" type="submit">
+          Submit
+        </Button>
+      </form>
     </FormControl>
   );
 };
