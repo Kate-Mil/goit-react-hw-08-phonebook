@@ -88,7 +88,7 @@ const RegisterForm = () => {
             onChange={hendlChange}
             type="text"
             name="password"
-            pattern="^(?=.*[a-z]).{5,}$"
+            pattern="^(?=.*[a-z]).{7,}$"
             title="Password must be at least 5 characters long and contain at least one lowercase letter"
             required
           />
