@@ -9,7 +9,7 @@ export default function Home() {
         Phonebook
       </Heading>
       <Box>
-        <Image width="470px" src={gus} alt="Logo" />
+        <Image width="450px" src={gus} alt="Logo" />
       </Box>
     </Container>
   );
