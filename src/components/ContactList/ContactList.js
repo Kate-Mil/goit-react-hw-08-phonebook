@@ -5,14 +5,19 @@ import {
   selectFilter,
   fetchContacts,
   deleteContact,
+  selectIsLoading,
+  selectError,
 } from '../../redux';
 import { useEffect } from 'react';
 import { List } from '@chakra-ui/react';
+import Loader from 'components/Loader/Loader';
 
 export default function ContactList() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -30,54 +35,23 @@ export default function ContactList() {
   if (!visibleContacts.length) return null;
 
   return (
-    <List
-      display="grid"
-      gridTemplateColumns="repeat(3, 1fr)"
-      gridAutoRows="auto"
-      gridGap="2rem"
-    >
-      {visibleContacts.map(({ id, name, number }) => (
-        <ContactItem
-          key={id}
-          name={name}
-          number={number}
-          onDeleteContact={() => dispatch(deleteContact(id))}
-        />
-      ))}
-    </List>
+    <>
+      {isLoading && !error && <Loader />}
+      <List
+        display="grid"
+        gridTemplateColumns="repeat(3, 1fr)"
+        gridAutoRows="auto"
+        gridGap="2rem"
+      >
+        {visibleContacts.map(({ id, name, number }) => (
+          <ContactItem
+            key={id}
+            name={name}
+            number={number}
+            onDeleteContact={() => dispatch(deleteContact(id))}
+          />
+        ))}
+      </List>
+    </>
   );
 }
-
-// export default function ContactList() {
-//   const dispatch = useDispatch();
-//   const contacts = useSelector(selectContacts);
-//   const filter = useSelector(selectFilter);
-
-//   useEffect(() => {
-//     dispatch(getContactsThunk());
-//   }, [dispatch]);
-
-//   const getVisibleContacts = () => {
-//     const normilizedFilter = filter.toLowerCase();
-//     return contacts.filter(contact =>
-//       contact.name.toLowerCase().includes(normilizedFilter)
-//     );
-//   };
-//   const visibleContacts = getVisibleContacts();
-//   console.log(visibleContacts);
-
-//   if (!visibleContacts.length) return null;
-
-//   return (
-//     <ul className={css.contact__list}>
-//       {visibleContacts.map(({ id, name, number }) => (
-//         <ContactItem
-//           key={id}
-//           name={name}
-//           number={number}
-//           onDeleteContact={() => dispatch(deleteContactThunk(id))}
-//         />
-//       ))}
-//     </ul>
-//   );
-// }

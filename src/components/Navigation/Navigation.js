@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { chakra, List, ListItem } from '@chakra-ui/react';
-// import { useAuth } from 'hooks';
+import { selectIsLoggedIn } from '../../redux';
+import { useSelector } from 'react-redux';
 
 const StyledListItem = chakra(ListItem, {
   baseStyle: {
@@ -13,16 +14,19 @@ const StyledListItem = chakra(ListItem, {
 });
 
 export const Navigation = () => {
-  //   const { isLoggedIn } = useAuth();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   return (
     <nav>
       <List display="flex" gap="10px">
         <StyledListItem>
           <NavLink to="/">Home</NavLink>
         </StyledListItem>
-        <StyledListItem>
-          <NavLink to="/contacts">Contacts</NavLink>
-        </StyledListItem>
+        {isLoggedIn && (
+          <StyledListItem>
+            <NavLink to="/contacts">Contacts</NavLink>
+          </StyledListItem>
+        )}
       </List>
     </nav>
   );
