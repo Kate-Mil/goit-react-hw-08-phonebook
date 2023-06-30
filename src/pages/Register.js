@@ -9,7 +9,7 @@ export default function Register() {
       p="12px"
       centerContent
       display="flex"
-      flex-derection="column"
+      flex-direction="column"
       gap="15px"
     >
       <RegisterForm />

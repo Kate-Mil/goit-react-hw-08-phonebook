@@ -6,8 +6,17 @@ import Register from 'pages/Register';
 import Home from 'pages/Home';
 import Layout from './Layout/Layout';
 import { ChakraProvider } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { refreshUser } from '../redux';
+import { useDispatch } from 'react-redux';
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <>
       <ChakraProvider>

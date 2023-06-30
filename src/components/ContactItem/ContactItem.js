@@ -1,22 +1,40 @@
-import css from './ContactItem.module.css';
 import PropTypes from 'prop-types';
-import { IconButton } from '@chakra-ui/react';
+import { IconButton, Text, Box } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
+import IconUserCircle from '../../pictures/IconUser/IconUser';
 
 export default function ContactItem({ name, number, onDeleteContact }) {
   return (
-    <li className={css.contact__item}>
-      <p className={css.contact__text}>
-        {name}: {number}
-      </p>
-      <IconButton
-        // className={css.contactItem__btn}
-        onClick={onDeleteContact}
-        type="button"
-        colorScheme="blue"
-        aria-label="Search database"
-        icon={<DeleteIcon />}
-      />
+    <li>
+      <Box
+        w="200px"
+        p="6"
+        display="flex"
+        flexDirection="column"
+        gap="10px"
+        alignItems="center"
+        boxShadow="base"
+        rounded="md"
+      >
+        <Box
+          as={IconUserCircle}
+          boxSize="4em"
+          fill="currentColor"
+          mr="1rem"
+          boxShadow="dark-lg"
+          rounded="50%"
+          color="#00000040"
+        />
+        <Text>{name}:</Text>
+        <Text>{number}</Text>
+        <IconButton
+          onClick={onDeleteContact}
+          type="button"
+          colorScheme="blue"
+          aria-label="Search database"
+          icon={<DeleteIcon />}
+        />
+      </Box>
     </li>
   );
 }

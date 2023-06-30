@@ -1,4 +1,3 @@
-import css from './ContactList.module.css';
 import ContactItem from '../ContactItem/ContactItem';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,6 +7,7 @@ import {
   deleteContact,
 } from '../../redux';
 import { useEffect } from 'react';
+import { List } from '@chakra-ui/react';
 
 export default function ContactList() {
   const dispatch = useDispatch();
@@ -30,7 +30,12 @@ export default function ContactList() {
   if (!visibleContacts.length) return null;
 
   return (
-    <ul className={css.contact__list}>
+    <List
+      display="grid"
+      gridTemplateColumns="repeat(3, 1fr)"
+      gridAutoRows="auto"
+      gridGap="2rem"
+    >
       {visibleContacts.map(({ id, name, number }) => (
         <ContactItem
           key={id}
@@ -39,7 +44,7 @@ export default function ContactList() {
           onDeleteContact={() => dispatch(deleteContact(id))}
         />
       ))}
-    </ul>
+    </List>
   );
 }
 
