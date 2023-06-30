@@ -1,15 +1,26 @@
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, Text } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, logOut } from '../../redux';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import gus from '../../pictures/gus.svg';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { name } = useSelector(selectUser);
 
   return (
-    <Box display="flex" gap="15px">
-      <p>{name}</p>
+    <Box display="flex" gap="10px">
+      <Box
+        as="img"
+        src={gus}
+        boxSize="2em"
+        backgroundColor="#A5DEFF"
+        rounded="50%"
+        justifyContent="center"
+      />
+      <p>
+        Welcome, <Text as="b">{name}</Text>
+      </p>
       <Button
         size="xs"
         rightIcon={<ArrowForwardIcon />}

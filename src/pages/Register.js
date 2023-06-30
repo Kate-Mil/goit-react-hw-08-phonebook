@@ -11,6 +11,7 @@ export default function Register() {
       display="flex"
       flex-direction="column"
       gap="15px"
+      height="100vh"
     >
       <RegisterForm />
       <Box>

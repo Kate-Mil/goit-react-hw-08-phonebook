@@ -4,7 +4,7 @@ import gus from '../pictures/gus.svg';
 
 export default function Home() {
   return (
-    <Container maxW="2xl" p="12px" mt="90px" centerContent>
+    <Container maxW="2xl" p="12px" mt="90px" centerContent height="100vh">
       <Heading size="4xl" mb={2} color="#2EAFEF" textShadow="2px 2px grey">
         Phonebook
       </Heading>

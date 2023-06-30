@@ -20,12 +20,12 @@ export default function ContactItem({ name, number, onDeleteContact }) {
           as={IconUserCircle}
           boxSize="4em"
           fill="currentColor"
-          mr="1rem"
+          // mr="1rem"
           boxShadow="dark-lg"
           rounded="50%"
           color="#00000040"
         />
-        <Text>{name}:</Text>
+        <Text>{name}</Text>
         <Text>{number}</Text>
         <IconButton
           onClick={onDeleteContact}

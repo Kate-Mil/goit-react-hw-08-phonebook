@@ -11,6 +11,7 @@ export default function Login() {
       display="flex"
       flex-derection="column"
       gap="15px"
+      height="100vh"
     >
       <LoginForm />
       <Box>
