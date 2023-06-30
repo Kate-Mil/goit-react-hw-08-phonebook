@@ -14,7 +14,6 @@ export default function Contacts() {
         flex-derection="column"
         gap="15px"
         height="100vh"
-        // overflow="auto"
       >
         <Heading size="lg">Phonebook</Heading>
         <ContactForm />

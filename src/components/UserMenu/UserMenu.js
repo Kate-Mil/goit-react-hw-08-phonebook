@@ -1,4 +1,5 @@
 import { Box, Button, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, logOut } from '../../redux';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -21,15 +22,17 @@ export const UserMenu = () => {
       <p>
         Welcome, <Text as="b">{name}</Text>
       </p>
-      <Button
-        size="xs"
-        rightIcon={<ArrowForwardIcon />}
-        colorScheme="blue"
-        type="button"
-        onClick={() => dispatch(logOut())}
-      >
-        Logout
-      </Button>
+      <Link to="/">
+        <Button
+          size="xs"
+          rightIcon={<ArrowForwardIcon />}
+          colorScheme="blue"
+          type="button"
+          onClick={() => dispatch(logOut())}
+        >
+          Logout
+        </Button>
+      </Link>
     </Box>
   );
 };
