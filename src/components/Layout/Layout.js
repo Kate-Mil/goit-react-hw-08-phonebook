@@ -5,7 +5,7 @@ import { Container } from '@chakra-ui/react';
 
 const Layout = () => {
   return (
-    <Container maxW="1280px" bgGradient="linear(to-b, #EDE990,#2EAFEF)">
+    <Container maxW="1440px" bgGradient="linear(to-b, #EDE990,#2EAFEF)">
       <AppBar />
       <Suspense fallback={null}>
         <Outlet />
