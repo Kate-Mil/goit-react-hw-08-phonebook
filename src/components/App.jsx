@@ -1,14 +1,14 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { ChakraProvider } from '@chakra-ui/react';
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { refreshUser, selectIsRefreshing } from '../redux';
 import { useDispatch, useSelector } from 'react-redux';
-import { lazy } from 'react';
 import PrivateRoute from './RrivateRoute';
 import PublicRoute from './PublicRoute';
 import Loader from './Loader/Loader';
+import { theme } from './globalStyles';
 
 const Home = lazy(() => import('../pages/Home'));
 const Register = lazy(() => import('../pages/Register'));
@@ -27,7 +27,7 @@ export default function App() {
     <Loader />
   ) : (
     <>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />}></Route>
@@ -55,6 +55,7 @@ export default function App() {
                 </PrivateRoute>
               }
             ></Route>
+            <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
       </ChakraProvider>
